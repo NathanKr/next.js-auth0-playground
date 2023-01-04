@@ -1,16 +1,24 @@
 import { useUser } from "@auth0/nextjs-auth0/client";
+import Link from "next/link";
 import Profile from "../src/profile";
 
 export default function Home() {
   const userInfo = useUser();
-  console.log(userInfo);
 
   return (
     <>
+        <Link href="/protected">
+        Protected
+        </Link>
+        <br />
       {userInfo.user ? (
-        <a href="/api/auth/logout">Logout</a>
+        <Link href="/api/auth/logout">
+          Logout
+        </Link>
       ) : (
-        <a href="/api/auth/login">Login</a>
+        <Link href="/api/auth/login">
+          Login
+        </Link>
       )}
       <Profile />
     </>

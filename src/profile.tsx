@@ -10,8 +10,8 @@ export default function Profile() {
   return user ? (
     <div>
       <img src={user.picture!} alt={user.name!} />
-      <h2>{user.name}</h2>
-      <p>{user.email}</p>
+      <h2>user name : {user.name}</h2>
+      <p>user email : {user.email}</p>
     </div>
   ) : (
     <div></div>

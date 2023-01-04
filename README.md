@@ -61,10 +61,10 @@ The authentication state exposed by UserProvider can be accessed in any componen
 <li>
 <h3>Add Login to Your Application</h3>
 
-A user can now log in to your application by visiting the /api/auth/login route provided by the SDK. Add a link to your login route using an anchor tag.
+A user can now log in to your application by visiting the /api/auth/login route provided by the SDK. Add a link to your login route.
 
 ```html
-<a href="/api/auth/login">Login</a>
+<Link href="/api/auth/login">Login</Link>
 ```
 
 <h6>Checkpoint</h6>
@@ -83,13 +83,13 @@ Once that's complete, verify that Auth0 redirects back to your application.
 Now that you can log in to your Next.js application, you need a way to log out. You can add a link that points to the /api/auth/logout API route. Clicking it redirects your users to your Auth0 logout endpoint (https://YOUR_DOMAIN/v2/logout) and then immediately redirects them back to your application.
 
 ```html
-<a href="/api/auth/logout">Logout</a>
+<Link href="/api/auth/logout">Logout</Link>
 ```
 </li>
 
 <li>
 <h3>Show User Profile Information</h3>
-he Auth0 Next.js SDK helps you retrieve the profile information associated with the logged-in user, such as their name or profile picture, to personalize the user interface. The profile information is available through the user property exposed by the useUser() hook. Take this Profile component as an example of how to use it:
+the Auth0 Next.js SDK helps you retrieve the profile information associated with the logged-in user, such as their name or profile picture, to personalize the user interface. The profile information is available through the user property exposed by the useUser() hook. Take this Profile component as an example of how to use it:
 
 ```typescript
 import React from 'react';
@@ -113,6 +113,24 @@ export default function Profile() {
 }
 ```
 </li>
+<li>
+<h3>Protect a page by login</h3>
+simply use withPageAuthRequired on the page. If you are not logged in you will be re-directed to login page
+
+```typescript
+import React from 'react';
+import { withPageAuthRequired } from '@auth0/nextjs-auth0/client';
+
+const Protected = () => {
+    return (
+        <div>
+            Only loggedin users can access this
+        </div>
+    );
+};
+
+export default withPageAuthRequired(Protected);
+```
 
 <li>
 <h3>Production</h3>
