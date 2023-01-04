@@ -5,13 +5,13 @@ Add auth0 authnetication (in particular social) to next.js
 <ol>
 <li><h5>create a react project on auth0</h5></li>
 <li><h5>get from the project application setting</h5> : Domain , Client ID and Client Secret from the project setting</li>
-<li><h5>set the callback url</h5> in the project application setting to : https://localhost:3000/api/auth/callback , http://localhost:3000/api/auth/callback </li>
-<li><h5>set the logout url</h5> in the project application setting to : https://localhost:3000 , http://localhost:3000</li>
+<li><h5>set the callback url</h5> in the project application setting to : https://localhost:3000/api/auth/callback , http://localhost:3000/api/auth/callback ,https://https://next-js-auth0-playground.vercel.app/api/auth/callback </li>
+<li><h5>set the logout url</h5> in the project application setting to : https://localhost:3000 , http://localhost:3000 , https://next-js-auth0-playground.vercel.app</li>
 <li><h5>install nextjs-auth0 </h5>: npm install @auth0/nextjs-auth0</li>
 <li><h5>add .env.local file </h5>on the project root with the following
 <ul>
-<li>AUTH0_SECRET='use [openssl rand -hex 32] to generate a 32 bytes value'. this is A long secret value used to encrypt the session cookie. You can generate a suitable string using openssl rand -hex 32 on the command line</li>
-<li>AUTH0_BASE_URL='http://localhost:3000'. this is the base URL of your application</li>
+<li>AUTH0_SECRET='use [openssl rand -hex 32] to generate a 32 bytes value'. this is A long secret value used to encrypt the session cookie. You can generate a suitable string using openssl rand -hex 32 on the command line</li>   
+<li>AUTH0_BASE_URL='http://localhost:3000'. this is the base URL of your application on development. use https://next-js-auth0-playground.vercel.app for production</li>
 <li>AUTH0_ISSUER_BASE_URL='https://YOUR_DOMAIN'. This is The URL of your Auth0 tenant domain. If you are using a Custom Domain with Auth0, set this to the value of your Custom Domain instead of the value reflected in the "Settings" tab.</li>
 <li>AUTH0_CLIENT_ID='YOUR_CLIENT_ID'. This is Your Auth0 application's Client ID</li>
 <li>AUTH0_CLIENT_SECRET='YOUR_CLIENT_SECRET'. This is your Auth0 application's Client Secret</li>
