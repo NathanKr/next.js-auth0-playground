@@ -1,7 +1,10 @@
 <h2>Motivation</h2>
-Add auth0 authnetication (in particular social) to next.js
+Add auth0 authnetication (in particular social) to next.js. I follow here <a href='https://auth0.com/docs/quickstart/webapp/nextjs'>auth0 documentation for next.js</a> and get out of the box : email\password and gmail authentication
 
-<h2>steps</h2>
+![Text](./figs/authentication.png)
+
+
+<h2>Setup steps</h2>
 <ol>
 <li><h3>create a react project on auth0</h3></li>
 <li><h3>get from the project application setting</h3> : Domain , Client ID and Client Secret from the project setting</li>
@@ -109,10 +112,18 @@ export default function Profile() {
   );
 }
 ```
+</li>
+
+<li>
+<h3>Production</h3>
+Load the .env.local file to vercel
+
+![Text](./figs/production-environment-variables.png)
+
+ and overide AUTH0_BASE_URL to https://next-js-auth0-playground.vercel.app
 
 </li>
 
-</ul>
 </ol>
 
 
