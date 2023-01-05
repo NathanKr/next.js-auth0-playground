@@ -33,19 +33,19 @@ Add auth0 authnetication (in particular social) to next.js. I follow here <a hre
   <tr>
     <td>withPageAuthRequired</td>
     <td>auth0 hoc</td>
-    <td>restrict access to page to logged in only users</td>
+    <td>restrict page access to logged in only users</td>
     <td>client page</td>
   </tr>
   <tr>
     <td>withMiddlewareAuthRequired</td>
     <td>auth0 hoc</td>
-    <td>restrict access to page to specific logged users. the spcific users are dfined in middleware.ts</td>
+    <td>restrict access to page to specific logged users. the spcific users are defined in middleware.ts</td>
     <td>client page</td>
   </tr>
   <tr>
     <td>middleware.ts</td>
-    <td>next.js middleware</td>
-    <td>intercept request and impose logic - here it restruct access to admin page to specific user</td>
+    <td>next.js file</td>
+    <td>intercept request and impose logic - here it restrict access to admin page for specific user only</td>
     <td>server</td>
   </tr>
 </table>
