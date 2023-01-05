@@ -114,7 +114,7 @@ export default function Profile() {
 ```
 </li>
 <li>
-<h3>Protect a page by login</h3>
+<h3>Protect a page by authenticated user</h3>
 simply use withPageAuthRequired on the page. If you are not logged in you will be re-directed to login page
 
 ```typescript
@@ -131,6 +131,30 @@ const Protected = () => {
 
 export default withPageAuthRequired(Protected);
 ```
+</li>
+
+<li>
+<h3>Protect a page by authenticated user</h3>
+access the page is allowed for logged in user which have specific user attributes e.g. email.
+
+```typescript
+export default withMiddlewareAuthRequired(async function middleware(req) {
+  const res = NextResponse.next();
+  const session = await getSession(req, res);
+
+  if (isAdmin(session?.user.email)) {
+    return res;
+  }
+
+  return NextResponse.redirect(new URL("/", req.url));
+});
+
+export const config = {
+  matcher: "/admin",
+};
+```
+
+</li>
 
 <li>
 <h3>Production</h3>
