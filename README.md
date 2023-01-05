@@ -149,4 +149,4 @@ Load the .env.local file to vercel
 
 
 <h2>References</h2>
-<a href='https://auth0.com/docs/quickstart/webapp/nextjs'>here</a>
+<a href='https://auth0.com/docs/quickstart/webapp/nextjs'>here</a> and <a href='https://github.com/auth0/nextjs-auth0/blob/main/EXAMPLES.md'>here</a>

@@ -7,18 +7,14 @@ export default function Home() {
 
   return (
     <>
-        <Link href="/protected">
-        Protected
-        </Link>
-        <br />
+      <Link href="/protected">Protected</Link>
+      <br />
+      <Link href="/admin">Admin</Link>
+      <br />
       {userInfo.user ? (
-        <Link href="/api/auth/logout">
-          Logout
-        </Link>
+        <Link href="/api/auth/logout">Logout</Link>
       ) : (
-        <Link href="/api/auth/login">
-          Login
-        </Link>
+        <Link href="/api/auth/login">Login</Link>
       )}
       <Profile />
     </>

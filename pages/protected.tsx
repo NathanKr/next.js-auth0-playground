@@ -1,12 +1,14 @@
-import React from 'react';
-import { withPageAuthRequired } from '@auth0/nextjs-auth0/client';
+import { withPageAuthRequired } from "@auth0/nextjs-auth0/client";
+import Link from "next/link";
 
 const Protected = () => {
-    return (
-        <div>
-            Only loggedin users can access this
-        </div>
-    );
+  return (
+    <div>
+      Only logged in users can access this
+      <br />
+      <Link href="/">Home</Link>
+    </div>
+  );
 };
 
 export default withPageAuthRequired(Protected);
