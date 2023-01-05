@@ -4,6 +4,54 @@ Add auth0 authnetication (in particular social) to next.js. I follow here <a hre
 ![Text](./figs/authentication.png)
 
 
+<h2>important mostly auth0 moving parts</h2>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Description</th>
+    <th>Scope</th>
+  </tr>
+  <tr>
+    <td>handleAuth</td>
+    <td>auth0 function</td>
+    <td> creates the following routes /api/auth/login , /api/auth/logout , /api/auth/callback , /api/auth/me</td>
+    <td>api</td>
+  </tr>
+<tr>
+    <td>UserProvider</td>
+    <td>auth0 Component (context api)</td>
+    <td>Provides user info context</td>
+    <td>client</td>
+  </tr>
+  <tr>
+    <td>useUser</td>
+    <td>auth0 hook</td>
+    <td>provide user info : name \ email \ picture from UserProvider</td>
+    <td>client</td>
+  </tr>
+  <tr>
+    <td>withPageAuthRequired</td>
+    <td>auth0 hoc</td>
+    <td>restrict access to page to logged in only users</td>
+    <td>client page</td>
+  </tr>
+  <tr>
+    <td>withMiddlewareAuthRequired</td>
+    <td>auth0 hoc</td>
+    <td>restrict access to page to specific logged users. the spcific users are dfined in middleware.ts</td>
+    <td>client page</td>
+  </tr>
+  <tr>
+    <td>middleware.ts</td>
+    <td>next.js middleware</td>
+    <td>intercept request and impose logic - here it restruct access to admin page to specific user</td>
+    <td>server</td>
+  </tr>
+</table>
+
+
+
 <h2>Setup steps</h2>
 <ol>
 <li><h3>create a react project on auth0</h3></li>
