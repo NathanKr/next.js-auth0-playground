@@ -3,7 +3,6 @@
 
 ![Text](./figs/authentication.png)
 
-
 <h2>important mostly auth0 moving parts</h2>
 <table>
   <tr>
@@ -50,8 +49,6 @@
   </tr>
 </table>
 
-
-
 <h2>Setup steps</h2>
 <ol>
 <li><h3>create a react project on auth0</h3></li>
@@ -74,7 +71,7 @@ Create an auth directory under the pages/api directory. Then, create a [...auth0
 
 ```typescript
 // pages/api/auth/[...auth0].js
-import { handleAuth } from '@auth0/nextjs-auth0';
+import { handleAuth } from "@auth0/nextjs-auth0";
 
 export default handleAuth();
 ```
@@ -85,6 +82,7 @@ Under the hood, handleAuth() creates the following routes:
     /api/auth/logout: The route used to log the user out.
     /api/auth/callback: The route Auth0 will redirect the user to after a successful login.
     /api/auth/me: The route to fetch the user profile from.
+
 </li>
 
 <li>
@@ -93,8 +91,8 @@ On the frontend side, the SDK uses React Context to manage the authentication st
 
 ```typescript
 // pages/_app.js
-import React from 'react';
-import { UserProvider } from '@auth0/nextjs-auth0/client';
+import React from "react";
+import { UserProvider } from "@auth0/nextjs-auth0/client";
 
 export default function App({ Component, pageProps }) {
   return (
@@ -104,7 +102,9 @@ export default function App({ Component, pageProps }) {
   );
 }
 ```
+
 The authentication state exposed by UserProvider can be accessed in any component using the useUser() hook.
+
 </li>
 <li>
 <h3>Add Login to Your Application</h3>
@@ -124,7 +124,6 @@ Once that's complete, verify that Auth0 redirects back to your application.
 
 ![Text](./figs/universal-login.png)
 
-
 </li>
 
 <li>
@@ -134,6 +133,7 @@ Now that you can log in to your Next.js application, you need a way to log out. 
 ```html
 <Link href="/api/auth/logout">Logout</Link>
 ```
+
 </li>
 
 <li>
@@ -141,8 +141,8 @@ Now that you can log in to your Next.js application, you need a way to log out. 
 the Auth0 Next.js SDK helps you retrieve the profile information associated with the logged-in user, such as their name or profile picture, to personalize the user interface. The profile information is available through the user property exposed by the useUser() hook. Take this Profile component as an example of how to use it:
 
 ```typescript
-import React from 'react';
-import { useUser } from '@auth0/nextjs-auth0/client';
+import React from "react";
+import { useUser } from "@auth0/nextjs-auth0/client";
 
 export default function Profile() {
   const { user, error, isLoading } = useUser();
@@ -161,29 +161,27 @@ export default function Profile() {
   );
 }
 ```
+
 </li>
 <li>
 <h3>Protect a page by authenticated user</h3>
 simply use withPageAuthRequired on the page. If you are not logged in you will be re-directed to login page
 
 ```typescript
-import React from 'react';
-import { withPageAuthRequired } from '@auth0/nextjs-auth0/client';
+import React from "react";
+import { withPageAuthRequired } from "@auth0/nextjs-auth0/client";
 
 const Protected = () => {
-    return (
-        <div>
-            Only loggedin users can access this
-        </div>
-    );
+  return <div>Only loggedin users can access this</div>;
 };
 
 export default withPageAuthRequired(Protected);
 ```
+
 </li>
 
 <li>
-<h3>Protect a page by authenticated user</h3>
+<h3>Protect a page by authorized user</h3>
 access the page is allowed for logged in user which have specific user attributes e.g. email.
 
 ```typescript
@@ -195,7 +193,9 @@ export default withMiddlewareAuthRequired(async function middleware(req) {
     return res;
   }
 
-  return NextResponse.redirect(new URL("/", req.url));
+  // --- todo nath : how to use generic error page and pass argument ?
+  // --- query string is not working
+  return NextResponse.redirect(new URL("error-un-authorize", req.url));
 });
 
 export const config = {
@@ -211,18 +211,16 @@ Load the .env.local file to vercel
 
 ![Text](./figs/production-environment-variables.png)
 
- and overide AUTH0_BASE_URL to https://next-js-auth0-playground.vercel.app
+and overide AUTH0_BASE_URL to https://next-js-auth0-playground.vercel.app
 
 </li>
 
 </ol>
 
-
 <h2>Open issues</h2>
 <ul>
 <li>currently i am doing NextResponse.redirect(new URL("error-un-authorize", req.url)) .better is to redirect to generic error page with the text as parameter</li>
 </ul>
-
 
 <h2>References</h2>
 <a href='https://auth0.com/docs/quickstart/webapp/nextjs'>here</a> and <a href='https://github.com/auth0/nextjs-auth0/blob/main/EXAMPLES.md'>here</a>
