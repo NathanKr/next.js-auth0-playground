@@ -1,9 +1,11 @@
+import styles from 'styles/error-un-authorize.module.css'
+
 
 const ErrorUnAuthorize = () => {
 
     return (
-        <div style={{height:'100vh', display:'flex' , justifyContent: 'center' , alignItems : 'center' }}>
-            <span style={{color:'red'}}>Error : Un Authorized User</span>
+        <div className = {styles.container}>
+            <p className={styles.error}>Error : Un Authorized User</p>
         </div>
     );
 };
