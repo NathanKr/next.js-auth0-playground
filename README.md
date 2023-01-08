@@ -1,5 +1,5 @@
 <h2>Motivation</h2>
-Add auth0 authnetication (in particular social) to next.js. I follow here <a href='https://auth0.com/docs/quickstart/webapp/nextjs'>auth0 documentation for next.js</a> and get out of the box : email\password and gmail authentication
+<p>Add auth0 authnetication (in particular social) to next.js</p> <p>I follow here <a href='https://auth0.com/docs/quickstart/webapp/nextjs'>auth0 documentation for next.js</a> and get out of the box : email\password and gmail authentication</p>
 
 ![Text](./figs/authentication.png)
 
@@ -109,7 +109,8 @@ The authentication state exposed by UserProvider can be accessed in any componen
 <li>
 <h3>Add Login to Your Application</h3>
 
-A user can now log in to your application by visiting the /api/auth/login route provided by the SDK. Add a link to your login route.
+<p>A user can now log in to your application by visiting the /api/auth/login route provided by the SDK. Add a link to your login route</p>
+<p>Notice that we get email\password and gmail authentication out of the box</p>
 
 ```html
 <Link href="/api/auth/login">Login</Link>
@@ -217,7 +218,10 @@ Load the .env.local file to vercel
 </ol>
 
 
-
+<h2>Open issues</h2>
+<ul>
+<li>currently i am doing NextResponse.redirect(new URL("error-un-authorize", req.url)) .better is to redirect to generic error page with the text as parameter</li>
+</ul>
 
 
 <h2>References</h2>

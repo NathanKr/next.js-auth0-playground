@@ -16,7 +16,9 @@ export default withMiddlewareAuthRequired(async function middleware(req) {
     return res;
   }
 
-  return NextResponse.redirect(new URL("/", req.url));
+  // --- todo nath : how to use generic error page and pass argument ?
+  // --- query string is not working
+  return NextResponse.redirect(new URL("error-un-authorize", req.url));
 });
 
 export const config = {

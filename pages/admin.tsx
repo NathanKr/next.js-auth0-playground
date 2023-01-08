@@ -1,9 +1,9 @@
 import { withPageAuthRequired } from "@auth0/nextjs-auth0/client";
-import React from 'react';
 
-const Admin = () => {
+const Admin  = () => {
     return (
         <div>
+            <h2>Admin page</h2>
             This page can be accessed only by nathan
         </div>
     );
