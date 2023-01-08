@@ -181,7 +181,7 @@ export default withPageAuthRequired(Protected);
 </li>
 
 <li>
-<h3>Protect a page by authorized user</h3>
+<h3>Protect a page by authorized user - middleware.ts</h3>
 access the page is allowed for logged in user which have specific user attributes e.g. email.
 
 ```typescript
