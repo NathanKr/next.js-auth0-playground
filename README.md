@@ -182,14 +182,14 @@ export default withPageAuthRequired(Protected);
 
 <li>
 <h3>Protect a page by authorized user - middleware.ts</h3>
-access the page is allowed for logged in user which have specific user attributes e.g. email.
+access the page is allowed for logged in user which have specific user attributes e.g. email and verified email - this make it unique
 
 ```typescript
 export default withMiddlewareAuthRequired(async function middleware(req) {
   const res = NextResponse.next();
   const session = await getSession(req, res);
 
-  if (isAdmin(session?.user.email)) {
+  if (isAdmin(session?.user.email, session?.user.email_verified)) {
     return res;
   }
 
