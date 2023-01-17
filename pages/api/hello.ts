@@ -6,6 +6,12 @@ type Data = {
   name: string
 }
 
+/*
+ --- anyone can access this api
+ --- session has values e.g. email if user is logged in 
+ --- session is empty if user is logged out 
+ */
+
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>

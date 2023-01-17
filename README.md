@@ -206,6 +206,35 @@ export const config = {
 </li>
 
 <li>
+<h3>Protect api by authenticated user - hello-protected.ts</h3>
+
+<ul>
+<li>only logged in user can access this api because of withApiAuthRequired </li>
+<li>otherwise you will get http status code of 401</li>
+</ul>
+
+```ts
+
+export default withApiAuthRequired(async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse<Data>
+) {
+  const session = await getSession(req, res);
+  console.log("************* session *************");
+  console.log(session);
+  console.log("************* user *************");
+  console.log(session?.user);
+  console.log("************* email *************");
+  console.log(session?.user.email);
+  res.status(200).json({ name: "John Doe protected" });
+});
+
+```
+
+</li>
+
+
+<li>
 <h3>Production</h3>
 Load the .env.local file to vercel
 
