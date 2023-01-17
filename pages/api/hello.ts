@@ -10,7 +10,12 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  const user = await getSession(req, res);
-  console.log(user);
+  const session = await getSession(req, res);
+  console.log('************* session *************');
+  console.log(session);
+  console.log('************* user *************');
+  console.log(session?.user);
+  console.log('************* email *************');
+  console.log(session?.user.email);
   res.status(200).json({ name: 'John Doe' })
 }
