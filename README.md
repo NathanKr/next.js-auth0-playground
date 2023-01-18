@@ -32,14 +32,20 @@
   <tr>
     <td>withPageAuthRequired</td>
     <td>auth0 hoc</td>
-    <td>restrict page access to logged in only users</td>
+    <td>restrict page access to logged in only users - authenticated</td>
     <td>client page</td>
   </tr>
   <tr>
     <td>withMiddlewareAuthRequired</td>
     <td>auth0 hoc</td>
-    <td>restrict access to page to specific logged users. the spcific users are defined in middleware.ts</td>
+    <td>restrict access to page to specific logged users - authenticated. the spcific users are defined in middleware.ts</td>
     <td>client page</td>
+  </tr>
+   <tr>
+    <td>withApiAuthRequired</td>
+    <td>auth0 hoc</td>
+    <td>restrict access to logged in user only - authenticated</td>
+    <td>api</td>
   </tr>
   <tr>
     <td>middleware.ts</td>
